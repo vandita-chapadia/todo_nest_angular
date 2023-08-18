@@ -12,14 +12,14 @@ export class RegisterComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  //get register user data
   registerUser(registerForm: NgForm) {
     if (registerForm.invalid) {
       return;
     }
     const { username, password } = registerForm.value;
-    console.log(username, password);
     this.apiService.register(username, password).subscribe((res) => {
-      //  registerForm.reset();
       console.log(res);
     });
   }

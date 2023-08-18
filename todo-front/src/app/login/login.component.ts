@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  //get login user data
   login(loginForm: NgForm) {
     if (loginForm.invalid) {
       return;

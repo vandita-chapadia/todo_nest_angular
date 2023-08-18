@@ -25,10 +25,12 @@ export class ApiService {
     }
   }
 
+  //service :: to get jwttoken
   get JwtUserToken(): Observable<string> {
     return this.jwtToken$.asObservable();
   }
 
+  // service :: get all todo 
   getAllTodos() {
     return this.http.get(`${this.API_URL}/todos`, {
       headers: {
@@ -37,6 +39,7 @@ export class ApiService {
     });
   }
 
+  // service :: login 
   login(username: string, password: string) {
     return this.http
       .post(`${this.API_URL}/auth/login`, { username, password })
@@ -65,6 +68,7 @@ export class ApiService {
       );
   }
 
+  // service:: logout
   logout() {
     this.token = '';
     this.jwtToken$.next(this.token);
@@ -78,6 +82,8 @@ export class ApiService {
       });
     return '';
   }
+
+   // service:: create new todo
   createTodo(title: string, description: string) {
     return this.http.post(
       `${this.API_URL}/todos`,
@@ -90,6 +96,7 @@ export class ApiService {
     );
   }
 
+   // service:: update status of todo
   updateStatus(statusValue: string, todoId: number) {
     return this.http
       .patch(
@@ -111,7 +118,8 @@ export class ApiService {
         })
       );
   }
-
+  
+ // service:: delete todo
   deleteTodo(todoId: number) {
     return this.http
       .delete(`${this.API_URL}/todos/${todoId}`, {
@@ -130,6 +138,7 @@ export class ApiService {
       );
   }
 
+   // service:: register user
   register(username: string, password: string) {
     return this.http
       .post(`${this.API_URL}/auth/register`, { username, password })

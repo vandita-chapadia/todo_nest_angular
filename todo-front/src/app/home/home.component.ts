@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // filter todo by status value 
   filterChanged(ev: MatSelectChange) {
     const value = ev.value;
     this.filteredTodos = this.todos;
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // made dialogbox for showcase todo info
   openDialog() {
     const dialogRef = this.dialog.open(TodoComponent, {
       width: '500px',
@@ -52,6 +54,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // update status 
   statusChanged(ev: MatSelectChange, todoId: number, index: number) {
     const value = ev.value;
     this.apiService.updateStatus(value, todoId).subscribe((todo) => {
@@ -59,7 +62,8 @@ export class HomeComponent implements OnInit {
       this.filteredTodos = this.todos;
     });
   }
-
+  
+// delete todo 
   delete(id: number) {
     if (confirm('Do you want to remove the Todo?')) {
       this.apiService.deleteTodo(id).subscribe((res) => {

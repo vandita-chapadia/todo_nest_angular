@@ -10,6 +10,8 @@ import { ApiService } from '../services/api.service';
 @Injectable({
   providedIn: 'root',
 })
+
+//add gaurd for authenticated user
 export class AuthGuard implements CanActivate {
   constructor(private api: ApiService, private router: Router) {}
   canActivate():
