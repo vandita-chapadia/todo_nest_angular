@@ -22,11 +22,13 @@ import { TodoStatus } from 'src/Entity/todo.entity';
 export class TodoController {
   constructor(private todoService: TodoService) {}
 
+  //get all todo list
   @Get()
   getAllTodos(@User() user: UserEntity) {
     return this.todoService.getAllTodos(user);
   }
 
+  //create new todo
   @Post()
   createNewTodo(
     @Body(ValidationPipe) data: createTodo,
@@ -35,6 +37,7 @@ export class TodoController {
     return this.todoService.createTodo(data, user);
   }
 
+  // update todo
   @Patch(':id')
   updateTodo(
     @Body('status', TodoStatusValidationPipe) status: TodoStatus,
@@ -44,6 +47,7 @@ export class TodoController {
     return this.todoService.updateTodo(id, status, user);
   }
 
+  //delete todo
   @Delete(':id')
   deleteTodo(@Param('id') id: number, @User() user: UserEntity) {
     return this.todoService.deleteTodo(id, user);

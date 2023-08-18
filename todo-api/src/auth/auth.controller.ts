@@ -7,11 +7,12 @@ import { AuthService } from './auth.service';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  // add register route
   @Post('register')
   registration(@Body() regDto: userRegisterDto) {
     return this.authService.registerUser(regDto);
   }
-
+  // add register login
   @Post('login')
   login(@Body(ValidationPipe) loginDto: loginUser) {
     return this.authService.loginUser(loginDto);

@@ -2,6 +2,7 @@ import { BadRequestException, PipeTransform } from '@nestjs/common';
 import { TodoStatus } from 'src/Entity/todo.entity';
 
 export class TodoStatusValidationPipe implements PipeTransform {
+  //todo status
   readonly allowedStatus: TodoStatus[] = [
     TodoStatus.OPEN,
     TodoStatus.WIP,
