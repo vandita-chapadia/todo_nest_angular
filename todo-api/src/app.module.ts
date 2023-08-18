@@ -6,7 +6,6 @@ import { TodoEntity } from './Entity/todo.entity';
 import { TodoModule } from './todo/todo.module';
 import { AuthModule } from './auth/auth.module';
 
-
 const ormOptions: TypeOrmModuleOptions = {
   type: 'mysql',
   host: 'localhost',
@@ -15,17 +14,11 @@ const ormOptions: TypeOrmModuleOptions = {
   password: 'Van4ha6093@',
   database: 'nest_angular_todo',
   autoLoadEntities: true,
-  synchronize: true
-
-}
+  synchronize: true,
+};
 @Module({
-  imports: [
-    TodoModule,
-    TypeOrmModule.forRoot(ormOptions),
-    AuthModule
-
-  ],
+  imports: [TodoModule, TypeOrmModule.forRoot(ormOptions), AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

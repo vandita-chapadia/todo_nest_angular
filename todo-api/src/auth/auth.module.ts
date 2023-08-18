@@ -14,18 +14,15 @@ import { JwtCustomStrategy } from './jwt-custom.strategy';
       secret: 'nest',
       signOptions: {
         algorithm: 'HS512',
-        expiresIn: '1d'
-
-      }
+        expiresIn: '1d',
+      },
     }),
     PassportModule.register({
-      defaultStrategy: 'jwt'
-    })
-
-
+      defaultStrategy: 'jwt',
+    }),
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtCustomStrategy],
-  exports: [PassportModule, JwtCustomStrategy]
+  exports: [PassportModule, JwtCustomStrategy],
 })
-export class AuthModule { }
+export class AuthModule {}

@@ -1,30 +1,29 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { UserEntity } from "./user.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { UserEntity } from './user.entity';
 
 @Entity('todos')
 export class TodoEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column()
+  title: string;
 
-    @Column()
-    title: string;
+  @Column()
+  description: string;
 
-    @Column()
-    description: string;
+  @Column()
+  status: TodoStatus;
 
-    @Column()
-    status: TodoStatus
+  @ManyToOne(() => UserEntity, (user) => user.todos)
+  user: UserEntity;
 
-    @ManyToOne(() => UserEntity, (user) => user.todos)
-    user: UserEntity
-
-    @Column()
-    userId: number
+  @Column()
+  userId: number;
 }
 
 export enum TodoStatus {
-    OPEN = 'OPEN',
-    WIP = 'WIP',
-    COMPLETED = 'COMPLETED'
+  OPEN = 'OPEN',
+  WIP = 'WIP',
+  COMPLETED = 'COMPLETED',
 }

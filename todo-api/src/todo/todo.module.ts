@@ -6,11 +6,8 @@ import { TodoController } from './todo.controller';
 import { TodoService } from './todo.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([TodoEntity]),
-    AuthModule
-  ],
+  imports: [TypeOrmModule.forFeature([TodoEntity]), AuthModule],
   controllers: [TodoController],
-  providers: [TodoService]
+  providers: [TodoService],
 })
-export class TodoModule { }
+export class TodoModule {}
