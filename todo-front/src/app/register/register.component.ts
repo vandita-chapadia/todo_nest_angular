@@ -6,25 +6,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  constructor(private apiService: ApiService, private router: Router) {}
 
-  constructor(private apiService: ApiService, private router: Router) { }
-
-  ngOnInit(): void {
-    //this.apiService.JwtUserToken.subscribe((token))
-  }
+  ngOnInit(): void {}
   registerUser(registerForm: NgForm) {
     if (registerForm.invalid) {
       return;
     }
     const { username, password } = registerForm.value;
-    console.log(username, password)
+    console.log(username, password);
     this.apiService.register(username, password).subscribe((res) => {
-    //  registerForm.reset();
+      //  registerForm.reset();
       console.log(res);
     });
   }
-
 }

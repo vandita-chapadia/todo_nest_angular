@@ -7,18 +7,17 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.apiService.JwtUserToken.subscribe((token) => {
       if (token) {
         this.router.navigateByUrl('/').then();
       }
-    })
+    });
   }
 
   login(loginForm: NgForm) {
@@ -29,5 +28,4 @@ export class LoginComponent implements OnInit {
     this.apiService.login(username, password);
     return loginForm.reset();
   }
-
 }

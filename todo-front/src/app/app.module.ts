@@ -44,11 +44,11 @@ import { HttpClientModule } from '@angular/common/http';
     ToastrModule.forRoot({
       progressAnimation: 'increasing',
       progressBar: true,
-      closeButton: true
+      closeButton: true,
     }),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
