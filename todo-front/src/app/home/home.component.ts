@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
     this.filteredTodos = this.todos;
     if (value) {
       this.filteredTodos = this.filteredTodos.filter((t) => t.status === value);
-      console.log(this.filteredTodos);
     } else {
       this.filteredTodos = this.todos;
     }
@@ -47,7 +46,6 @@ export class HomeComponent implements OnInit {
       this.apiService
         .createTodo(data.title, data.description)
         .subscribe((result: any) => {
-          console.log(result);
           this.todos.push(result);
           this.filteredTodos = this.todos;
         });
