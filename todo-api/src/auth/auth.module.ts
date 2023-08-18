@@ -11,7 +11,7 @@ import { JwtCustomStrategy } from './jwt-custom.strategy';
   imports: [
     TypeOrmModule.forFeature([UserEntity]),
     JwtModule.register({
-      secret: 'nest',
+      secret: 'add_secret_string',
       signOptions: {
         algorithm: 'HS512',
         expiresIn: '1d',

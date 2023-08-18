@@ -2,17 +2,16 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TodoEntity } from './Entity/todo.entity';
 import { TodoModule } from './todo/todo.module';
 import { AuthModule } from './auth/auth.module';
 
 const ormOptions: TypeOrmModuleOptions = {
-  type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'root',
-  password: 'Van4ha6093@',
-  database: 'nest_angular_todo',
+  type: 'db_type',
+  host: 'host_name',
+  port: 'port',
+  username: 'username',
+  password: 'password',
+  database: 'db_name',
   autoLoadEntities: true,
   synchronize: true,
 };

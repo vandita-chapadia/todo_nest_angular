@@ -12,7 +12,7 @@ export class JwtCustomStrategy extends PassportStrategy(Strategy) {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: 'nest',
+      secretOrKey: 'add_secret_string',
     });
   }
   async validate(payload: { username: string }) {
